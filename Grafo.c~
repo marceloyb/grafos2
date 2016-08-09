@@ -18,10 +18,14 @@ void inicializar_grafo (GRAFO *G, int nV, int nA, int dir)
   for (j = 0; j < nV; ++j)
     G->pai[j] = 0;
   
-  G->chave = (int *) malloc (nV * sizeof (int));
+  G->t_inicio = (int *) malloc (nV * sizeof (int));
   for (j = 0; j < nV; ++j)
-    G->chave[j] = 0;
+    G->t_inicio[j] = 0;
   
+  G->t_fim = (int *) malloc (nV * sizeof (int));
+  for (j = 0; j < nV; ++j)
+    G->t_fim[j] = 0;
+
   G->distancia = (int *) malloc (nV * sizeof (int));
   for (j = 0; j < nV; ++j)
     G->distancia[j] = 0;
