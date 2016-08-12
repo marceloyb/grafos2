@@ -29,28 +29,17 @@ void menu (int *tempo)
   while (1)
     {
 			int raiz;
-      printf ("<1> Busca em profundidade\n<2> Busca em largura\n\
-<3> Componentes fortemente conectados\n<4> Caminho minimo\n<0> Sair\n");
+      printf ("<1> Arvore geradora mínima\n<2> Vizinho mais proximo\n<0> Sair\n");
       scanf ("%d", &opcao);
 
       switch (opcao)
 	{
 	case 1:
-	  	 dfs (&G, *tempo);
+	  		// Arvore geradora mínima
 	  break;
 
 	case 2:
-			 printf ("Insira o vértice desejado para a raiz\n");
-			 scanf ("%d", &raiz);
-	  	 bfs (&G, raiz);
-	  break;
-
-	case 3:
-	  //	  scc (&G);
-	  break;
-
-	case 4:
-	  //	  caminho_minimo (&G);
+			// Vizinho mais proximo
 	  break;
 
 	case 0:

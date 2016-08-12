@@ -1,0 +1,36 @@
+#include "Grafo.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+#include "filaPrioridadeDin.h"
+
+void prim (GRAFO *G, int raiz){
+	FILA_P fila;
+	NO* u;
+	int i, minimo = 0, confere;
+	int *vetor_peso = (int*) malloc (G->nV*sizeof(int));
+	for (i = 0; i < G->nV; i++){
+		G->chave[i] = INT_MAX;
+		G->pai[i] = -1;
+		G->cor[i] = branco;
+		vetor_peso[i] = 0;
+	}
+	G->chave[raiz] = 0;
+	G->cor[raiz] = preto;
+	inicializar(fila);
+	for (i = 0; i < G->nV; i++){
+		inserir(i, G->chave[i], fila);
+	}
+	while (!filavazia){
+		u = buscaMenorPrioridade(fila, NULL);
+		removermenor (fila);
+		confere = u->info;
+		//buscanafila(fila, confere);
+		for (i = 0; i < G->nV; i++){
+			if ((buscanafila(fila, confere) == 1) && (G->adj[u][i] < G->chave[i])){
+				G->pai[i] = u;
+				G->chave[i] = G->adj[u][i];
+			}
+		}
+	}
+}

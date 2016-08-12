@@ -35,7 +35,9 @@ void menu (int *tempo)
       switch (opcao)
 	{
 	case 1:
-	  		// Arvore geradora mínima
+			printf ("Insira o vértice desejado para a raiz\n");
+			scanf ("%d", &raiz);
+	  	prim (&G, raiz); 
 	  break;
 
 	case 2:

@@ -109,7 +109,7 @@ int removermenor (FILA_P *fi){
 		int infoalvo=0, vertice=0;
   	vertice = buscaMenorPrioridade(*fi);
 		infoalvo = alvo->info;
-		printf ("%d", buscaMenorPrioridade(*fi));
+		printf ("%d", buscaMenorPrioridade(fi));
 		if (infoalvo == vertice){			
 			printf ("asoidoisajd");
 			ant->prox = alvo->prox;

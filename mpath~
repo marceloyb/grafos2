@@ -1,0 +1,16 @@
+#include "Grafo.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+void prim (GRAFO *G, int raiz){
+	int i, poslista = 0, poslistafim = 0;
+	int *vetor_peso = (int*) malloc (G->nV*sizeof(int));
+	for (i = 0; i < G->nV; i++){
+		G->chave[i] = INT_MAX;
+		G->pai[i] = -1;
+		G->cor[i] = branco;
+		vetor_peso[i] = 0;
+	}
+	G->chave[raiz] = 0;
+	G->cor[raiz] = preto;

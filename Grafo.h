@@ -18,7 +18,7 @@ struct GRAFO
   int **adj;
 };
 
-void prim (GRAFO *G);
+void prim (GRAFO *G, int raiz);
 
 void inicializar_grafo (GRAFO *G, int nV, int nA, int dir);
 void inserir_vertice (GRAFO *G, int origem, int destino, int peso);
