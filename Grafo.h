@@ -9,18 +9,19 @@ struct GRAFO
 {
   int nV;
   int nA;
-  int dir;
-  int *distancia;
-  
+
   enum Cor *cor;
-  int *chave;
   int *pai;
+  int *chave;
+  int *distancia;  
   int **adj;
 };
 
 void prim (GRAFO *G, int raiz);
+void tsp_nn (GRAFO *G);
 
-void inicializar_grafo (GRAFO *G, int nV, int nA, int dir);
+void inicializar_grafo (GRAFO *G, int nV, int nA);
 void inserir_vertice (GRAFO *G, int origem, int destino, int peso);
+void limpar_grafo (GRAFO *G);
 
 #endif

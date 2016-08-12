@@ -2,18 +2,17 @@
 
 #include <stdlib.h>
 
-void inicializar_grafo (GRAFO *G, int nV, int nA, int dir)
+void inicializar_grafo (GRAFO *G, int nV, int nA)
 {
   int i, j;
 
   G->nV = nV;
   G->nA = nA;
-  G->dir = dir;
-    
+
   G->cor = (enum Cor *) malloc (nV * sizeof (enum Cor));
   for (j = 0; j < nV; ++j)
-    G->cor[j] = 0;
-  
+    G->cor[j] = branco;
+
   G->pai = (int *) malloc (nV * sizeof (int));
   for (j = 0; j < nV; ++j)
     G->pai[j] = 0;
@@ -38,7 +37,17 @@ void inicializar_grafo (GRAFO *G, int nV, int nA, int dir)
 void inserir_vertice (GRAFO *G, int origem, int destino, int peso)
 {
   G->adj[origem][destino] = peso;
+  G->adj[destino][origem] = peso;
+}
 
-  if (G->dir)
-    G->adj[destino][origem] = peso;
+void limpar_grafo (GRAFO *G)
+{
+  int i;
+
+  free (G->pai);
+  free (G->chave);
+  free (G->distancia);
+  for (i = 0; i < G->nV; ++i)
+    free (G->adj[i]);
+  free (G);
 }

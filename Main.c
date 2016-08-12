@@ -1,3 +1,6 @@
+// Marcelo Yuri Benesciutti RA: 90565
+// Pedro Garozi RA: 90552
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -28,20 +31,20 @@ void menu (int *tempo)
 
   while (1)
     {
-			int raiz;
+      int raiz;
       printf ("<1> Arvore geradora mínima\n<2> Vizinho mais proximo\n<0> Sair\n");
       scanf ("%d", &opcao);
 
       switch (opcao)
 	{
 	case 1:
-			printf ("Insira o vértice desejado para a raiz\n");
-			scanf ("%d", &raiz);
-	  	prim (&G, raiz); 
+	  printf ("Insira o vértice desejado para a raiz\n");
+	  scanf ("%d", &raiz);
+	  prim (&G, raiz); 
 	  break;
 
 	case 2:
-			// Vizinho mais proximo
+	  tsp_nn (&G);
 	  break;
 
 	case 0:
@@ -55,7 +58,7 @@ void menu (int *tempo)
 
 void ler_grafo (char *nome)
 {
-  int nV, nA, dir;
+  int nV, nA;
   char str[50];
   char lixo;
   FILE *fp;
@@ -63,9 +66,8 @@ void ler_grafo (char *nome)
   fp = fopen (nome, "r");
   fscanf (fp, "%d", &nV);
   fscanf (fp, "%d", &nA);
-  fscanf (fp, "%d", &dir);
 
-  inicializar_grafo (&G, nV, nA, dir);
+  inicializar_grafo (&G, nV, nA);
 
   fscanf (fp, "%*c", &lixo);
 
@@ -77,5 +79,4 @@ void ler_grafo (char *nome)
       sscanf (str, "%d %d %d", &origem, &destino, &peso);
       inserir_vertice (&G, origem, destino, peso);
     }
-
 }
