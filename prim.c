@@ -24,6 +24,7 @@ void prim (GRAFO *G, int raiz){
 		printf ("tey");
 	}
 	// faz a busca na fila de prioridade, extrai o minimo e compara com os adj
+	// ESSA É A FUNÇÃO COM PROBLEMA PIZZA!
 	if (filavazia(fila) == 0){
 		printf ("entrou");
 		u = buscaMenorPrioridade(fila);

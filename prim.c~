@@ -26,7 +26,7 @@ void prim (GRAFO *G, int raiz){
 	// faz a busca na fila de prioridade, extrai o minimo e compara com os adj
 	if (filavazia(fila) == 0){
 		printf ("entrou");
-		u = buscaMenorPrioridade(&fila);
+		u = buscaMenorPrioridade(fila);
 		removermenor(&fila);
 	}
 	// Imprime caracteristicas dos vertices
